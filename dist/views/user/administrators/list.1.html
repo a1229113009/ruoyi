@@ -10,28 +10,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
   <link rel="stylesheet" href="../../../layuiadmin/layui/css/layui.css" media="all">
   <link rel="stylesheet" href="../../../layuiadmin/style/admin.css" media="all">
-	<link rel="stylesheet" href="../layuiadmin/style/xiangmu.css" media="all">
-	<link rel="stylesheet" href="../layuiadmin/style/global.css" media="all">
 </head>
 <body>
 
-  <div class="layui-fluid" >   
-    <div class="layui-card">	
+  <div class="layui-fluid">   
+    <div class="layui-card">
       <div class="layui-form layui-card-header layuiadmin-card-header-auto">
+        <div class="layui-form-item">
           <div class="layui-inline">
-            <li>
-									登录名称：<input type="text" name="loginName">
-								</li>
+            <label class="layui-form-label">登录名</label>
+            <div class="layui-input-block">
+              <input type="text" name="loginname" placeholder="请输入" autocomplete="off" class="layui-input">
+            </div>
           </div>
           <div class="layui-inline">
-            <li>
-									手机号码：<input type="text" name="phonenumber">
-								</li>
+            <label class="layui-form-label">手机</label>
+            <div class="layui-input-block">
+              <input type="text" name="telphone" placeholder="请输入" autocomplete="off" class="layui-input">
+            </div>
           </div>
-					
-					
           <div class="layui-inline">
-            <label class="layui-form-label">用户状态</label>
+            <label class="layui-form-label">邮箱</label>
+            <div class="layui-input-block">
+              <input type="text" name="email" placeholder="请输入" autocomplete="off" class="layui-input">
+            </div>
+          </div>
+          <div class="layui-inline">
+            <label class="layui-form-label">角色</label>
             <div class="layui-input-block">
               <select name="role">
                 <option value="0">管理员</option>
@@ -44,47 +49,20 @@
               </select>
             </div>
           </div>
-					
-					
-					<div class="layui-inline">
-						<li class="select-time" style="margin-left: 10px;">
-										<label>创建时间： </label>
-										<input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginTime]" lay-key="2">
-										<span>-</span>
-										<input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endTime]" lay-key="2">
-						</li>
-          </div>
           <div class="layui-inline">
-              <button type="button" class="layui-btn layui-btn-radius" style="background-color:#1ab394">搜索</button> 
-							<button type="button" class="layui-btn layui-btn-warm layui-btn-radius" style="background-color:#f8ac59">重置</button>      
+            <button class="layui-btn layuiadmin-btn-admin" lay-submit lay-filter="LAY-user-back-search">
+              <i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>
+            </button>
           </div>
         </div>
       </div>
-			
-      <div class="layui-card-body" >
-        <div style="padding-bottom: 10px;" style="float:left;">
-          <button type="button" class="layui-btn layui-btn-normal" style="background-color:#1c84c6"><i class="layui-icon" style="font-size:12px;">&#xe654;</i>新增</button>
-          <button class="layui-btn layuiadmin-btn-admin" data-type="add" style="background-color:#1ab394"><i class="layui-icon" style="font-size:12px;">&#xe642;</i>修改</button>
-					<button type="button" class="layui-btn layui-btn-danger" style="background-color:#ed5565"><i class="layui-icon" style="font-size:12px;">&#x1006;</i>删除</button>
-					<button type="button" class="layui-btn" style="background-color:#23c6c8"><i class="layui-icon" style="font-size:12px;">&#xe602;</i>导入</button>
-					<button type="button" class="layui-btn layui-btn-warm" style="background-color:#f8ac59"><i class="layui-icon" style="font-size:12px;">&#xe603;</i>导出</button>
-					
-					<div class="layui-btn-group" style="float:right;">
-							<button type="button" class="layui-btn layui-btn-primary layui-btn-sm">
-								<i class="layui-icon">&#xe615;</i>
-							</button>
-							<button type="button" class="layui-btn layui-btn-primary layui-btn-sm">
-								<i class="layui-icon">&#xe666;</i>
-							</button>
-							<button type="button" class="layui-btn layui-btn-primary layui-btn-sm">
-								<i class="layui-icon">&#xe632;</i>
-							</button>
-							<button type="button" class="layui-btn layui-btn-primary layui-btn-sm">
-								<i class="layui-icon">&#xe640;</i>
-							</button>
-					 </div>
+      
+      <div class="layui-card-body">
+        <div style="padding-bottom: 10px;">
+          <button class="layui-btn layuiadmin-btn-admin" data-type="batchdel">删除</button>
+          <button class="layui-btn layuiadmin-btn-admin" data-type="add">添加</button>
         </div>
-				
+        
         <table id="LAY-user-back-manage" lay-filter="LAY-user-back-manage"></table>  
         <script type="text/html" id="buttonTpl">
           {{#  if(d.check == true){ }}
@@ -102,7 +80,6 @@
           {{#  } }}
         </script>
       </div>
-			
     </div>
   </div>
 

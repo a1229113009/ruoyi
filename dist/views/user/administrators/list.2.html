@@ -17,21 +17,18 @@
 
   <div class="layui-fluid" >   
     <div class="layui-card">	
-      <div class="layui-form layui-card-header layuiadmin-card-header-auto">
+      <div class="layui-form layui-card-header layuiadmin-card-header-auto" ">
+			
+        <div class="layui-form-item" >
           <div class="layui-inline">
             <li>
-									登录名称：<input type="text" name="loginName">
-								</li>
-          </div>
-          <div class="layui-inline">
-            <li>
-									手机号码：<input type="text" name="phonenumber">
+									菜单名称：<input type="text" name="loginName">
 								</li>
           </div>
 					
 					
-          <div class="layui-inline">
-            <label class="layui-form-label">用户状态</label>
+          <div class="layui-inline" sta>
+            <label class="layui-form-label">菜单状态</label>
             <div class="layui-input-block">
               <select name="role">
                 <option value="0">管理员</option>
@@ -45,15 +42,6 @@
             </div>
           </div>
 					
-					
-					<div class="layui-inline">
-						<li class="select-time" style="margin-left: 10px;">
-										<label>创建时间： </label>
-										<input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginTime]" lay-key="2">
-										<span>-</span>
-										<input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endTime]" lay-key="2">
-						</li>
-          </div>
           <div class="layui-inline">
               <button type="button" class="layui-btn layui-btn-radius" style="background-color:#1ab394">搜索</button> 
 							<button type="button" class="layui-btn layui-btn-warm layui-btn-radius" style="background-color:#f8ac59">重置</button>      
@@ -61,47 +49,23 @@
         </div>
       </div>
 			
-      <div class="layui-card-body" >
-        <div style="padding-bottom: 10px;" style="float:left;">
-          <button type="button" class="layui-btn layui-btn-normal" style="background-color:#1c84c6"><i class="layui-icon" style="font-size:12px;">&#xe654;</i>新增</button>
-          <button class="layui-btn layuiadmin-btn-admin" data-type="add" style="background-color:#1ab394"><i class="layui-icon" style="font-size:12px;">&#xe642;</i>修改</button>
-					<button type="button" class="layui-btn layui-btn-danger" style="background-color:#ed5565"><i class="layui-icon" style="font-size:12px;">&#x1006;</i>删除</button>
-					<button type="button" class="layui-btn" style="background-color:#23c6c8"><i class="layui-icon" style="font-size:12px;">&#xe602;</i>导入</button>
-					<button type="button" class="layui-btn layui-btn-warm" style="background-color:#f8ac59"><i class="layui-icon" style="font-size:12px;">&#xe603;</i>导出</button>
-					
-					<div class="layui-btn-group" style="float:right;">
-							<button type="button" class="layui-btn layui-btn-primary layui-btn-sm">
-								<i class="layui-icon">&#xe615;</i>
-							</button>
-							<button type="button" class="layui-btn layui-btn-primary layui-btn-sm">
-								<i class="layui-icon">&#xe666;</i>
-							</button>
-							<button type="button" class="layui-btn layui-btn-primary layui-btn-sm">
-								<i class="layui-icon">&#xe632;</i>
-							</button>
-							<button type="button" class="layui-btn layui-btn-primary layui-btn-sm">
-								<i class="layui-icon">&#xe640;</i>
-							</button>
-					 </div>
-        </div>
-				
-        <table id="LAY-user-back-manage" lay-filter="LAY-user-back-manage"></table>  
-        <script type="text/html" id="buttonTpl">
-          {{#  if(d.check == true){ }}
-            <button class="layui-btn layui-btn-xs">已审核</button>
-          {{#  } else { }}
-            <button class="layui-btn layui-btn-primary layui-btn-xs">未审核</button>
-          {{#  } }}
-        </script>
-        <script type="text/html" id="table-useradmin-admin">
-          <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="edit"><i class="layui-icon layui-icon-edit"></i>编辑</a>
-          {{#  if(d.role == '超级管理员'){ }}
-            <a class="layui-btn layui-btn-disabled layui-btn-xs"><i class="layui-icon layui-icon-delete"></i>删除</a>
-          {{#  } else { }}
-            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"><i class="layui-icon layui-icon-delete"></i>删除</a>
-          {{#  } }}
-        </script>
-      </div>
+      		<div class="layui-container">
+    <br><br>
+    <a class="layui-btn layui-btn-normal" href="index.html">&lt;&lt;返回</a>
+    &nbsp;&nbsp;
+    <div class="layui-btn-group">
+        <button class="layui-btn" id="btn-expand">全部展开</button>
+        <button class="layui-btn" id="btn-fold">全部折叠</button>
+    </div>
+
+    <table id="auth-table" class="layui-table" lay-filter="auth-table"></table>
+</div>
+<!-- 操作列 -->
+<script type="text/html" id="auth-state">
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="edit">修改</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+
 			
     </div>
   </div>
@@ -189,6 +153,58 @@
       active[type] ? active[type].call(this) : '';
     });
   });
+	  layui.config({
+        base: 'module/'
+    }).extend({
+        treetable: 'treetable-lay/treetable'
+    }).use(['table', 'treetable'], function () {
+        var $ = layui.jquery;
+        var table = layui.table;
+        var treetable = layui.treetable;
+
+        // 渲染表格
+        layer.load(2);
+        treetable.render({
+            treeColIndex: 1,
+            treeSpid: -1,
+            treeIdName: 'authorityId',
+            treePidName: 'parentId',
+            elem: '#auth-table',
+            url: 'json/menus.json',
+            page: false,
+            cols: [[
+                {type: 'numbers'},
+                {field: 'authorityName', minWidth: 200, title: '权限名称'},
+                {field: 'authority', title: '权限标识'},
+                {field: 'menuUrl', title: '菜单url'},
+                {field: 'orderNumber', width: 80, align: 'center', title: '排序号'},
+                {
+                    field: 'isMenu', width: 80, align: 'center', templet: function (d) {
+                        if (d.isMenu == 1) {
+                            return '<span class="layui-badge layui-bg-gray">按钮</span>';
+                        }
+                        if (d.parentId == -1) {
+                            return '<span class="layui-badge layui-bg-blue">目录</span>';
+                        } else {
+                            return '<span class="layui-badge-rim">菜单</span>';
+                        }
+                    }, title: '类型'
+                },
+                {templet: '#auth-state', width: 120, align: 'center', title: '操作'}
+            ]],
+            done: function () {
+                layer.closeAll('loading');
+            }
+        });
+
+        $('#btn-expand').click(function () {
+            treetable.expandAll('#auth-table');
+        });
+
+        $('#btn-fold').click(function () {
+            treetable.foldAll('#auth-table');
+        });
+    });
   </script>
 </body>
 </html>

@@ -17,7 +17,9 @@
 
   <div class="layui-fluid" >   
     <div class="layui-card">	
-      <div class="layui-form layui-card-header layuiadmin-card-header-auto">
+      <div class="layui-form layui-card-header layuiadmin-card-header-auto" ">
+			
+        <div class="layui-form-item" >
           <div class="layui-inline">
             <li>
 									登录名称：<input type="text" name="loginName">
@@ -45,15 +47,8 @@
             </div>
           </div>
 					
-					
-					<div class="layui-inline">
-						<li class="select-time" style="margin-left: 10px;">
-										<label>创建时间： </label>
-										<input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginTime]" lay-key="2">
-										<span>-</span>
-										<input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endTime]" lay-key="2">
-						</li>
-          </div>
+
+		
           <div class="layui-inline">
               <button type="button" class="layui-btn layui-btn-radius" style="background-color:#1ab394">搜索</button> 
 							<button type="button" class="layui-btn layui-btn-warm layui-btn-radius" style="background-color:#f8ac59">重置</button>      
@@ -66,7 +61,6 @@
           <button type="button" class="layui-btn layui-btn-normal" style="background-color:#1c84c6"><i class="layui-icon" style="font-size:12px;">&#xe654;</i>新增</button>
           <button class="layui-btn layuiadmin-btn-admin" data-type="add" style="background-color:#1ab394"><i class="layui-icon" style="font-size:12px;">&#xe642;</i>修改</button>
 					<button type="button" class="layui-btn layui-btn-danger" style="background-color:#ed5565"><i class="layui-icon" style="font-size:12px;">&#x1006;</i>删除</button>
-					<button type="button" class="layui-btn" style="background-color:#23c6c8"><i class="layui-icon" style="font-size:12px;">&#xe602;</i>导入</button>
 					<button type="button" class="layui-btn layui-btn-warm" style="background-color:#f8ac59"><i class="layui-icon" style="font-size:12px;">&#xe603;</i>导出</button>
 					
 					<div class="layui-btn-group" style="float:right;">

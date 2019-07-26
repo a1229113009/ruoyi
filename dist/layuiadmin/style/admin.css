@@ -1,5 +1,4 @@
 /** layuiAdmin.std-v1.2.1 LPPL License By http://www.layui.com/admin/ */
-
 html #layuicss-layuiAdmin {
 	display: none;
 	position: absolute;
@@ -153,6 +152,7 @@ html {
 	.layui-form[wid100] .layui-form-item .layui-input-inline {
 		margin-left: 132px
 	}
+
 	.layui-form[wid100] .layui-form-item .layui-input-inline+.layui-form-mid {
 		margin-left: 130px
 	}
@@ -185,7 +185,7 @@ html {
 }
 
 .layadmin-link {
-	color: #029789!important
+	color: #029789 !important
 }
 
 .layadmin-link:hover {
@@ -220,7 +220,7 @@ html {
 }
 
 .layui-layer-adminRight {
-	top: 50px!important;
+	top: 50px !important;
 	bottom: 0;
 	box-shadow: 1px 1px 10px rgba(0, 0, 0, .1);
 	border-radius: 0;
@@ -278,7 +278,7 @@ html {
 
 .layui-header .layui-nav .layui-this:after,
 .layui-layout-admin .layui-header .layui-nav-bar {
-	top: 0!important;
+	top: 0 !important;
 	bottom: auto;
 	height: 3px;
 	background-color: #fff;
@@ -334,7 +334,7 @@ html {
 }
 
 .layui-side-menu .layui-nav .layui-nav-child .layui-nav-child {
-	background: 0 0!important
+	background: 0 0 !important
 }
 
 .layui-side-menu .layui-nav .layui-nav-child .layui-nav-child a {
@@ -351,6 +351,7 @@ html {
 		-webkit-transform: translate3d(-220px, 0, 0);
 		width: 220px
 	}
+
 	.layadmin-pagetabs,
 	.layui-layout-admin .layui-body,
 	.layui-layout-admin .layui-footer,
@@ -360,12 +361,8 @@ html {
 }
 
 .layadmin-side-shrink .layui-layout-admin .layui-logo {
-	width: 50px;
-	background-image: url(../../views/img/tux.png);
-	background-size: 50px;
-	border-radius: 50%;
-	top: 10px;
-	left: 5px;
+	width: 60px;
+	background-image: url(res/logo.png)
 }
 
 .layadmin-side-shrink .layui-layout-admin .layui-logo span {
@@ -508,7 +505,7 @@ html {
 
 .layadmin-tabs-select.layui-nav .layui-nav-child dd.layui-this,
 .layadmin-tabs-select.layui-nav .layui-nav-child dd.layui-this a {
-	background-color: #f2f2f2!important;
+	background-color: #f2f2f2 !important;
 	color: #333
 }
 
@@ -598,12 +595,12 @@ html {
 .layui-layout-admin .layui-header {
 	border-bottom: 1px solid #f6f6f6;
 	box-sizing: border-box;
-	background-color: #3c8dbc
+	background-color: #fff
 }
 
 .layui-layout-admin .layui-header a,
 .layui-layout-admin .layui-header a cite {
-	color: #fff
+	color: #333
 }
 
 .layui-layout-admin .layui-header a:hover {
@@ -611,11 +608,11 @@ html {
 }
 
 .layui-layout-admin .layui-header .layui-nav .layui-nav-more {
-	border-top-color: #fff
+	border-top-color: #666
 }
 
 .layui-layout-admin .layui-header .layui-nav .layui-nav-mored {
-	border-color: transparent transparent #fff
+	border-color: transparent transparent #666
 }
 
 .layui-layout-admin .layui-header .layui-nav .layui-this:after,
@@ -700,7 +697,7 @@ html {
 }
 
 .layadmin-carousel {
-	height: 185px!important;
+	height: 185px !important;
 	background-color: #fff
 }
 
@@ -823,7 +820,7 @@ html {
 }
 
 .layadmin-dataview {
-	height: 332px!important
+	height: 332px !important
 }
 
 .layadmin-dataview>[carousel-item]:before {
@@ -865,7 +862,7 @@ html {
 }
 
 .layadmin-news {
-	height: 60px!important;
+	height: 60px !important;
 	padding: 5px 0
 }
 
@@ -1315,6 +1312,7 @@ html {
 	from {
 		-webkit-transform: translate3d(100%, 0, 0)
 	}
+
 	to {
 		-webkit-transform: translate3d(0, 0, 0)
 	}
@@ -1324,6 +1322,7 @@ html {
 	from {
 		transform: translate3d(100%, 0, 0)
 	}
+
 	to {
 		transform: translate3d(0, 0, 0)
 	}
@@ -1339,6 +1338,7 @@ html {
 		-webkit-transform: translate3d(0 0, 0);
 		opacity: 1
 	}
+
 	to {
 		-webkit-transform: translate3d(100%, 0, 0);
 		opacity: 1
@@ -1349,6 +1349,7 @@ html {
 	from {
 		transform: translate3d(0, 0, 0)
 	}
+
 	to {
 		transform: translate3d(100%, 0, 0)
 	}
@@ -1394,11 +1395,57 @@ html {
 		margin: 0;
 		width: auto
 	}
+
 	.layui-body .layui-nav .layui-nav-item {
 		display: block
 	}
+
 	.layui-layout-admin .layui-body .layadmin-tabsbody-item {
 		-webkit-overflow-scrolling: touch;
 		overflow: auto
 	}
 }
+
+
+
+.layui-input-block input{
+	margin-top: 5px;
+}
+.layui-inline layui-form-label{
+	background-color: red;
+}
+.layui-inline input {
+	width: 130px;
+	height: 25px;
+}
+.layui-card{
+	background-color: #fff;
+}
+.layui-inline button{
+	width: 60px;
+	height: 30px;
+	line-height:30px;
+	font-size:12px ; 
+	margin-left: 30px;
+	 text-align: center; 
+}
+.layui-card-body button{
+	height: 30px;
+	line-height:30px;
+	font-size:12px ; 
+}
+.layui-card-body{
+	background-color:#fff;
+	margin-top: 5px;
+}
+.select-time input{
+	width: 80px;
+	height: 25px;
+}
+.select-time{
+	float: left;
+	width: 280px;
+}
+.layui-card{}
+.layui-inline{width: 240px; }
+
